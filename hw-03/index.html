@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ИТД-21М - Дзетовецкий Кирилл</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <main class="container">
+            <h1>Результаты выполнения заданий</h1>
+
+            <!-- карточка задания 1 -->
+            <section class="task-card">
+                <h2>Задание №1: Работа с переменными</h2>
+                <p>Нажмите кнопку, чтобы выполнить alert:</p>
+                <button id="task1-button">alert</button>
+                <pre id="task1-output"></pre>
+            </section>
+
+            <!-- карточка задания 2-->
+            <section class="task-card">
+                <h2>Задание №2: Понятные имена переменных</h2>
+                <pre id="task2-output"></pre>
+            </section>
+
+            <!-- карточка задания 3 -->
+            <section class="task-card">
+                <h2>Задание №3: Работа с объектами</h2>
+                <pre id="task3-output"></pre>
+            </section>
+
+            <!-- карточка задания 4 -->
+            <section class="task-card">
+                <h2>Задание №4: Работа со сложными объектами</h2>
+                <pre id="task4-output"></pre>
+            </section>
+
+            <!-- карточка задания 5 -->
+            <section class="task-card">
+                <h2>Задание №5: Разбор кода</h2>
+                <p><strong>Результат выполнения кода:</strong></p>
+                <pre id="task5-output"></pre>
+            </section>
+
+            <!-- карточка задания 6 -->
+            <section class="task-card">
+                <h2>Задание №6: Создание функций</h2>
+                <pre id="task6-output"></pre>
+            </section>
+
+            <!-- карточка задания 7 -->
+            <section class="task-card">
+                <h2>Задание №7: Функции и условные операторы</h2>
+                <pre id="task7-output"></pre>
+            </section>
+        </main>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // --- задание 1 ---
+                console.log("--- Задание №1 ---");
+                (() => {
+                    let adminName, userName;
+                    userName = "про_100_Кирилл";
+                    adminName = userName;
+                    console.log("Значение переменной adminName:", adminName);
+                    const button = document.getElementById("task1-button");
+                    const output = document.getElementById("task1-output");
+                    button.addEventListener("click", () => alert(adminName));
+                    output.textContent = `Значение переменной adminName: "${adminName}"`;
+                })();
+
+                // --- задание 2 ---
+                console.log("\n--- Задание №2 ---");
+                (() => {
+                    const ourPlanetName = "Земля";
+                    let currentUserName = "Алексей";
+                    const userRegistrationDate = "26.10.2023";
+                    let userRole = "admin";
+                    console.log("Название нашей планеты:", ourPlanetName);
+                    console.log("Имя текущего пользователя:", currentUserName);
+                    console.log("Дата регистрации:", userRegistrationDate);
+                    console.log("Роль пользователя:", userRole);
+                    const output = document.getElementById("task2-output");
+                    output.textContent = `Название нашей планеты: ${ourPlanetName}\nИмя текущего пользователя: ${currentUserName}\nДата регистрации: ${userRegistrationDate}\nРоль пользователя: ${userRole}`;
+                })();
+
+                // --- задание 3 ---
+                console.log("\n--- Задание №3 ---");
+                (() => {
+                    const product = { name: "Ноутбук", price: 99000 };
+                    product.category = "Электроника";
+                    product.price = 95500;
+                    console.log("Весь объект product:", product);
+                    console.log("Название товара:", product.name);
+                    console.log("Цена товара:", product.price);
+                    console.log("Категория товара:", product.category);
+                    const output = document.getElementById("task3-output");
+                    output.textContent = `Весь объект product:\n${JSON.stringify(
+                        product,
+                        null,
+                        2
+                    )}`;
+                })();
+
+                // --- задание 4 ---
+                console.log("\n--- Задание №4 ---");
+                (() => {
+                    let student = {
+                        name: "Алексей",
+                        age: 21,
+                        courses: ["Алгоритмы и программные средства в трёхмерной графике", "Трёхмерная графика в JavaScript"],
+                        address: {
+                            city: "Москва",
+                            street: "К611",
+                            number: 10,
+                        },
+                    };
+                    student.courses.push("Юзабилити пользовательских интерфейсов");
+                    student.address.city = "Санкт-Петербург";
+                    student.courses.shift();
+                    student.grades = { Алгоритмы_и_программные_средства_в_трёхмерной_графике: 5, Трёхмерная_графика_в_JavaScript: 5 };
+                    console.log("Информация о студенте:");
+                    console.log(`Имя: ${student.name}`);
+                    console.log(`Возраст: ${student.age}`);
+                    console.log(`Город: ${student.address.city}`);
+                    console.log(
+                        `Адрес: ${student.address.street}, д.${student.address.number}`
+                    );
+                    console.log(
+                        `Изучаемые курсы: ${student.courses.join(", ")}`
+                    );
+                    console.log("Оценки по курсам:", student.grades);
+
+                    const output = document.getElementById("task4-output");
+                    output.textContent = `Информация о студенте:\nИмя: ${
+                        student.name
+                    }\nВозраст: ${student.age}\nГород: ${
+                        student.address.city
+                    }\nАдрес: ${student.address.street}, д.${
+                        student.address.number
+                    }\nИзучаемые курсы: ${student.courses.join(
+                        ", "
+                    )}\nОценки по курсам: ${JSON.stringify(student.grades)}`;
+                })();
+
+                // --- задание 5 ---
+                console.log("\n--- Задание №5 ---");
+                (() => {
+                    const a = { value: 3 };
+                    const b = a;
+                    b.value++;
+                    let c = 3;
+                    let d = c;
+                    d++;
+                    console.log("Результат:", a.value, c);
+                    const output = document.getElementById("task5-output");
+                    output.textContent = `${a.value} ${c}`;
+                })();
+
+                // --- задание 6 ---
+                console.log("\n--- Задание №6 ---");
+                (() => {
+                    function greet(name) {
+                        return `Привет, ${name}!`;
+                    }
+                    function sum(a, b) {
+                        return a + b;
+                    }
+                    function isEven(number) {
+                        return number % 2 === 0;
+                    }
+                    function calculateArea(width, height) {
+                        return width * height;
+                    }
+                    console.log(greet("Анна"));
+                    console.log(sum(5, 3));
+                    console.log(isEven(4));
+                    console.log(calculateArea(5, 10));
+                    const output = document.getElementById("task6-output");
+                    output.textContent = `greet("Анна"): "${greet(
+                        "Анна"
+                    )}"\nsum(5, 3): ${sum(5, 3)}\nisEven(4): ${isEven(
+                        4
+                    )}\ncalculateArea(5, 10): ${calculateArea(5, 10)}`;
+                })();
+
+                // --- задание 7 ---
+                console.log("\n--- Задание №7 ---");
+                (() => {
+                    function checkAge(age) {
+                        if (age < 18)
+                            return "Доступ запрещён: возраст меньше 18 лет.";
+                        if (age <= 59)
+                            return "Доступ разрешён: добро пожаловать!";
+                        return "Доступ разрешён: добро пожаловать! Особые привилегии.";
+                    }
+                    function getDiscount(totalAmount) {
+                        if (totalAmount < 1000) return 0;
+                        if (totalAmount <= 5000) return 5;
+                        return 10;
+                    }
+                    function greetUser(name, age) {
+                        return `Привет, ${name}! ${checkAge(age)}`;
+                    }
+                    console.log(checkAge(16));
+                    console.log(getDiscount(3000));
+                    console.log(greetUser("Анна", 25));
+
+                    const output = document.getElementById("task7-output");
+                    output.textContent = `checkAge(16): "${checkAge(
+                        16
+                    )}"\ngetDiscount(3000): ${getDiscount(
+                        3000
+                    )}%\ngreetUser("Анна", 25): "${greetUser("Анна", 25)}"`;
+                })();
+            });
+        </script>
+    </body>
+</html>
