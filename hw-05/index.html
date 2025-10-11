@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ИТД-21М Дзетовецкий Кирилл</title>
+</head>
+<body>
+    <p>все результаты выполнения заданий в консоли </p>
+
+    <script>
+        /*
+        задание 1
+        */
+        console.log("--- Задание №1: Фильтрация чётных чисел ---");
+        
+        function filterEvenNumbers(numbersArray) {
+            if (!Array.isArray(numbersArray)) {
+                console.error("Ошибка: на вход ожидается массив");
+                return [];
+            }
+            return numbersArray.filter(number => number % 2 === 0);
+        }
+
+        const originalArray = [1, 2, 3, 4, 5, 6];
+        const arrayWithNegatives = [-2, -1, 0, 1, 2, 9, 10];
+        const emptyArray = [];
+        
+        console.log("Исходный [1, 2, 3, 4, 5, 6], результат:", filterEvenNumbers(originalArray));
+        console.log("Исходный [-2, -1, 0, ...], результат:", filterEvenNumbers(arrayWithNegatives));
+        console.log("Исходный [], результат:", filterEvenNumbers(emptyArray));
+
+
+        /*
+        задание 2
+        */
+        console.log("\n--- Задание №2: Вывод чисел от N до 1 ---");
+
+        function countdownWithWhile(n) {
+            if (!Number.isInteger(n) || n <= 0) {
+                console.log(`Ошибка для n=${n}: введите положительное целое число.`);
+                return; 
+            }
+            
+            console.log(`Вывод чисел от ${n} до 1:`);
+            let current = n;
+            while (current >= 1) {
+                console.log(current);
+                current--;
+            }
+        }
+        
+        countdownWithWhile(5);
+        countdownWithWhile(-3); 
+
+        /*
+       задание 3
+        */
+        console.log("\n--- Задание №3: Определение длины слов ---");
+
+        function getWordLengths(wordsArray) {
+            if (!Array.isArray(wordsArray)) return [];
+            return wordsArray.map(word => word.length);
+        }
+        
+        const words = ["hello", "world", "javascript", "map"];
+        console.log(`Для массива [${words.join(', ')}] длиныыа слов:`, getWordLengths(words));
+
+
+        /*
+        задание 4
+        */
+        console.log("\n--- Задание №4: Нумерация строк ---");
+
+        function logNumberedLines(linesArray) {
+            if (!Array.isArray(linesArray)) return;
+            linesArray.forEach((line, index) => {
+                console.log(`${index + 1}. ${line}`);
+            });
+        }
+        
+        const lines = ["Первая строка", "Вторая строка", "Третья строка"];
+        logNumberedLines(lines);
+
+
+        /*
+        задание 5
+        */
+        console.log("\n--- Задание №5: Поиск чисел больше заданного ---");
+
+        function filterGreaterThan(arr, n) {
+            if (!Array.isArray(arr)) return [];
+            return arr.filter(number => number > n);
+        }
+
+        const numbers = [10, 25, 8, 42, 15, 6];
+        const valueN = 20;
+        console.log(`Числа из массива [${numbers.join(', ')}] больше ${valueN}:`, filterGreaterThan(numbers, valueN));
+
+    </script>
+</body>
+</html>
