@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ИТД-21М Дзетовецкий Кирилл</title>
+    </head>
+    <body>
+        <p>все результаты выполнения заданий в консоли</p>
+
+        <script>
+            /*
+       задание 1
+        */
+            console.log("--- Задание №1: Работа с контекстом объектов ---");
+
+            const car = {
+                brand: "Toyota",
+                model: "Camry",
+                year: 2022,
+                getDescription: function () {
+                    return `${this.brand} ${this.model}, выпущен в ${this.year} году.`;
+                },
+            };
+            console.log(car.getDescription());
+
+            /*
+        задание 2.1
+        */
+            console.log("\n--- Задание №2.1: Создание класса ---");
+
+            class Book {
+                constructor(title, author, year) {
+                    this.title = title;
+                    this.author = author;
+                    this.year = year;
+                }
+
+                getSummary() {
+                    return `"${this.title}" была написана ${this.author} в ${this.year} году.`;
+                }
+                static compareAge(bookA, bookB) {
+                    if (bookA.year < bookB.year) {
+                        return `Книга "${bookA.title}" была издана раньше, чем "${bookB.title}".`;
+                    } else if (bookB.year < bookA.year) {
+                        return `Книга "${bookB.title}" была издана раньше, чем "${bookA.title}".`;
+                    } else {
+                        return `Обе книги были изданы в одном и том же ${bookA.year} году.`;
+                    }
+                }
+            }
+
+            const book1_task2 = new Book("Война и мир", "Лев Толстой", 1869);
+            console.log(book1_task2.getSummary());
+
+            /*
+        задание 2.2.
+        */
+            console.log("\n--- Задание №2.2: Наследование классов ---");
+
+            class Magazine extends Book {
+                constructor(title, author, year, month) {
+                    super(title, author, year);
+                    this.month = month;
+                }
+
+                getSummary() {
+                    return `"${this.title}" был выпущен издательством ${this.author} в ${this.month} ${this.year} года.`;
+                }
+            }
+
+            const mag1 = new Magazine(
+                "National Geographic",
+                "National Geographic Society",
+                1888,
+                "Июль"
+            );
+            console.log(mag1.getSummary());
+
+            /*
+        задание 2.3.
+        */
+            console.log("\n--- Задание №2.3: Статические методы ---");
+            const book1_task3 = new Book("Война и мир", "Лев Толстой", 1869);
+            const book2_task3 = new Book("Анна Каренина", "Лев Толстой", 1877);
+            const comparisonResult = Book.compareAge(book1_task3, book2_task3);
+
+            console.log(comparisonResult);
+        </script>
+    </body>
+</html>
